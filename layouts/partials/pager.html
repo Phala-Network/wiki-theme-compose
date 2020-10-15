@@ -3,6 +3,8 @@
   <div class="pager_item prev">
     <!-- <span class="pager_meta">PREVIOUS</span> -->
     <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
+      <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+      <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
       <span class="pager_label">{{ .Title }}</span>
     </a>
   </div>
@@ -13,6 +15,8 @@
     <!-- <span class="pager_meta">NEXT</span> -->
     <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
       <span class="pager_label">{{ .Title }}</span>
+      <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+      <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
     </a>
   </div>
   {{ end }}

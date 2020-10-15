@@ -194,13 +194,13 @@
     align-items: center
     text-align: center
     justify-content: center
-    &::before, &::after
-      background-image: url(../images/next.svg)
-      height: 0.8rem
-      width: 0.8rem
-      background-size: 100%
-      background-repeat: no-repeat
-      transform-origin: 50% 50%
+    &_next
+      height: 1rem
+      margin: 0 0
+      &.light
+        display: var(--light-display)
+      &.dark
+        display: var(--dark-display)
 
   &_item
     display: flex
@@ -218,15 +218,11 @@
       &::after
         content: ""
 
-  &_item.prev &_link
-    &::before
-      content: ""
-      transform: rotate(180deg)
-      margin-right: 0.67rem
+  &_item.prev &_link_next
+    transform: rotate(180deg)
+    margin-right: 0.67rem
 
-  &_item.next &_link
-    &::after
-      content: ""
+  &_item.next &_link_next
       margin-left: 0.67rem
 
   &_item.next &_link

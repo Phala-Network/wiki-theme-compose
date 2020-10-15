@@ -12,15 +12,20 @@ html
   --font-title: 'Lato', sans-serif
   --border-color: #eee
   --theme: rgb(52,199,89)
+  --light-display: unset
+  --dark-display: none
 
   @mixin darkmode
     --color-mode: "dim"
     --theme: #D1FF52
+    --light: #111
     --bg: var(--dark)
     --text: #eee
     --accent: var(--bubble)
     --overlay: var(--bubble)
     --border-color: transparent
+    --light-display: none
+    --dark-display: unset
     *
       box-shadow: none !important
 
