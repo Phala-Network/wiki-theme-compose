@@ -1,8 +1,13 @@
+html, body
+  font-size: 16px
+
 h1
   font-size: 200%
 h2
+  margin-top: 2em
   font-size: 150%
 h3
+  margin-top: 1em
   font-size: 125%
 h4
   font-size: 120%
@@ -15,13 +20,51 @@ blockquote
 .subsection
   margin-left: 0.3rem
 
+.page-home h1
+  font-weight: 400
+
 section.content
   h1,h2,h3,h4,h5
     margin: 1rem 0 0 0
 
+li
+  padding: 0 0
+p
+  padding: 0 0
+  margin-block-start: 1em
+  margin-block-end: 1em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+
+blockquote
+  .highlight_wrap
+    width: 100%
+  p
+    font-size: 1rem !important
+
 .aside
+  // cancel content margin
+  h1, h2, h3
+    margin-top: 0
+  .aside_inner
+    margin-bottom: 16px
+  // first 
+  > .aside_inner
+    > h2
+      font-weight: 600
+    margin-top: 16px
+    .subsection h2
+      font-size: 1em
   h2
-    margin-top: 4px
+    margin-top: 8px
   .subsection .section h3
     font-family: sans-serif
+    font-size: 0.9em
     padding: 4px 0
+  .toc_item
+    font-size: 0.9em
+    font-weight: 300
+  li
+    &, p
+      padding: 0 0
+      line-height: 1.6;
