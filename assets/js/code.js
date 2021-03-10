@@ -178,6 +178,9 @@ function copyCode(codeElement) {
 
 function disableCodeLineNumbers(block){
   const lines = elems('.ln', block)
+  if (!lines) {
+    return;
+  }
   toggleLineNumbers(lines);
 }
 
