@@ -1,24 +1,34 @@
 <div class="pager{{ if .Next }}{{ else }} pager_lean{{ end }}">
-  {{ with .Site.RegularPages.Next . }}
-  <div class="pager_item prev">
-    <!-- <span class="pager_meta">PREVIOUS</span> -->
-    <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-      <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-      <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-      <span class="pager_label">{{ .Title }}</span>
-    </a>
-  </div>
+  {{ with .NextInSection }}
+    <div class="pager_item prev">
+      <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
+        <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+        <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
+        <span class="pager_label">{{ .Title }}</span>
+      </a>
+    </div>
   {{ end }}
 
-  {{ with .Site.RegularPages.Prev . }}
-  <div class="pager_item next">
-    <!-- <span class="pager_meta">NEXT</span> -->
-    <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-      <span class="pager_label">{{ .Title }}</span>
-      <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-      <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-    </a>
-  </div>
+  {{ if .IsSection }}
+    {{range first 1 .Pages }}
+      <div class="pager_item next">
+        <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
+          <span class="pager_label">{{ .Title }}</span>
+          <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+          <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
+        </a>
+      </div>
+    {{ end }}
+  {{ end }}
+
+  {{ with .PrevInSection }}
+    <div class="pager_item next">
+      <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
+        <span class="pager_label">{{ .Title }}</span>
+        <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+        <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
+      </a>
+    </div>
   {{ end }}
 </div>
 {{ partialCached "sprites" . }}
