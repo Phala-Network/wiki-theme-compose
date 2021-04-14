@@ -1,44 +1,28 @@
 <div class="pager{{ if .Next }}{{ else }} pager_lean{{ end }}">
   <div class="pager_item prev">
     {{ with .NextInSection }}
-      <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-        <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-        <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-        <span class="pager_label">{{ .Title }}</span>
-      </a>
+      {{ partial "pagerlinkleft" . }}
     {{ else }}
       {{ if .IsPage}}
         {{ with .Parent }}
-          <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-            <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-            <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-            <span class="pager_label">{{ .Title }}</span>
-          </a>
+          {{ partial "pagerlinkleft" . }}
         {{ end }}
       {{ end }}
     {{ end }}
   </div>
 
+  <div class="pager_item next">
   {{ if .IsSection }}
-    {{range first 1 .Pages }}
-      <div class="pager_item next">
-        <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-          <span class="pager_label">{{ .Title }}</span>
-          <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-          <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-        </a>
-      </div>
+    {{ range first 1 .Pages }}
+      {{ partial "pagerlinkright" . }}
     {{ end }}
   {{ end }}
-
+        
   {{ with .PrevInSection }}
     <div class="pager_item next">
-      <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
-        <span class="pager_label">{{ .Title }}</span>
-        <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
-        <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
-      </a>
+      {{ partial "pagerlinkright" . }}
+        </div>
+      {{ end }}
     </div>
-  {{ end }}
 </div>
 {{ partialCached "sprites" . }}
