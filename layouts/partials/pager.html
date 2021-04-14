@@ -6,6 +6,16 @@
         <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
         <span class="pager_label">{{ .Title }}</span>
       </a>
+    {{ else }}
+      {{ if .IsPage}}
+        {{ with .Parent }}
+          <a href="{{ .Permalink }}" class="pager_link button" title="{{ .Title }}">
+            <img class="pager_link_next light" src="{{ (absURL "/images/next.svg") }}">
+            <img class="pager_link_next dark" src="{{ (absURL "/images/next-dark.svg") }}">
+            <span class="pager_label">{{ .Title }}</span>
+          </a>
+        {{ end }}
+      {{ end }}
     {{ end }}
   </div>
 
